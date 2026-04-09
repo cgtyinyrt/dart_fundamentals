@@ -174,4 +174,66 @@ void main() {
   number7 > 1 ? print("number is larger") : print("number is lower");
   var question = (null ?? "How r u?");
   print(question);
+
+  // Switch - Case
+  var value = 1;
+  switch (value) {
+    case 1:
+      print("One");
+      break;
+    case 2:
+      print("Two");
+      break;
+    default:
+      print("Other");
+  }
+
+  // Assert
+  var value2 = 1;
+  print("codes... 1");
+  print("codes... 2");
+  print("codes... 3");
+  // assert(value2 == 3);
+  print("codes... 4");
+  print("codes... 5");
+
+  // Functions
+  package();
+  // print(calculation());
+  var result = calculation();
+  print(result);
+
+  // Function Parameters (Arguments)
+  bessameMucho("Çağatay", "İnyurt", 30);
+  bessameMucho2("Çağatay", null, 30);
+}
+
+// Functions
+void package() {
+  print("Hi...");
+  print("How r u?...");
+}
+
+int calculation() {
+  var number = 4;
+  var number2 = 2;
+
+  var multi = number * number2;
+  return multi;
+}
+
+dynamic bessameMucho(String name, String surname, int age) {
+  print("Dear $name $surname, happy $age. birthday for you!");
+}
+
+dynamic bessameMucho2(String name, [String? surname, int? age]) {
+  if (surname != null && age != null) {
+    print("Dear $name $surname, happy $age. birthday for you!");
+  } else if (surname != null && age == null) {
+    print("Dear $name $surname, happy birthday for you!");
+  } else if (surname == null && age != null) {
+    print("Dear $name, happy $age. birthday for you!");
+  } else {
+    print("Dear $name, happy birthday for you!");
+  }
 }
