@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 void main() {
   // print("Hello, World!");
   // print(12345);
@@ -206,6 +208,42 @@ void main() {
   // Function Parameters (Arguments)
   bessameMucho("Çağatay", "İnyurt", 30);
   bessameMucho2("Çağatay", null, 30);
+
+  // List - Arrays
+  var myList = ["Milk", "Apple", "Bread", "Water"];
+  print(myList);
+  print(myList[0]);
+  print(myList.length);
+  var myList2 = [];
+  List myList3 = [];
+  // <int> => Generic Type
+  var myList4 = <int>[1, 2, 3, 4, 5];
+  List<int> myList5 = [];
+  print(myList4);
+
+  // Fixed-Length List
+  var fixedList = List<int>.filled(3, 0);
+  // fixedList.add(10); // Error
+
+  // Set => unique element iterable
+  var myList6 = <int>[3, 5, 7, 11, 3, 7];
+  print(myList6);
+  var mySet = myList6.toSet();
+  print(mySet);
+
+  var emptySet = Set<int>();
+  var set1 = {"a", "b", "c", "d"};
+  var set2 = <String>{};
+  Set<String> set3 = {};
+
+  // Queue => Iterable allows addition and deletion operations
+  // at the beginning and end of lines.
+  var queue = Queue.from([1, 2, 3, 3, "string", null, []]);
+  queue.addFirst("dart");
+  queue.addLast(77);
+  //.removeFirst();
+  //.removeLast();
+  print(queue);
 }
 
 // Functions
