@@ -244,6 +244,102 @@ void main() {
   //.removeFirst();
   //.removeLast();
   print(queue);
+
+  // Lazy Iterable
+  // Iterable veri kullanıp yine iterable veri üretir.
+
+  List<int> nums = [5, 17, 23, 51];
+  print(
+    nums.where((number) {
+      if (number > 20) {
+        return true;
+      } else {
+        return false;
+      }
+    }),
+  );
+
+  // Map<Key, Value>
+  var car = {
+    "color": "Red",
+    "model": "A3",
+    "brand": "Audi",
+    "Production Year": 2018,
+  };
+  print("Brand of the car: ${car["brand"]}");
+  var car2 = {};
+  Map<String, dynamic> car3 = {};
+
+  // Loops
+  // For loop
+  for (int i = 0; i < 7; i++) {
+    print(i);
+  }
+
+  List<int> numbers = [2, 5, 7, 10, 23, 56, 77];
+  for (var i = 0; i < numbers.length; i++) {
+    var eleman = numbers[i];
+    if (eleman.isOdd) {
+      print("$eleman bir tek sayı");
+    } else {
+      print("$eleman bir çift sayı");
+    }
+  }
+
+  // For in
+  // It is used if there is an unchanging structure.
+  for (var eleman in numbers) {
+    if (eleman.isOdd) {
+      print("$eleman bir tek sayı");
+    } else {
+      print("$eleman bir çift sayı");
+    }
+  }
+
+  // ForEach
+  List<int> numbers2 = [2, 5, 7, 10, 23, 56, 77];
+  numbers.forEach((eleman) {
+    if (eleman.isOdd) {
+      print("$eleman tek");
+    } else {
+      print("$eleman çift");
+    }
+  });
+
+  void function(eleman) {
+    if (eleman.isOdd) {
+      print("$eleman TEK");
+    } else {
+      print("$eleman ÇİFT");
+    }
+  }
+
+  List<int> numbers3 = [2, 5, 7, 10, 23, 56, 77];
+  numbers3.forEach(function);
+
+  // While loop
+  int s = 0;
+  while (s < 10) {
+    print("s value: $s");
+    s++;
+  }
+
+  // Do While
+  int t = 0;
+  do {
+    print("t value: $t");
+    t++;
+  } while (t < 10);
+
+  // Break & Continue
+  int r = 0;
+  while (r < 10) {
+    print("r value: $r");
+    r++;
+    // if (r == 7) break;
+    if (r > 4) continue;
+    print("The 'r' value is small here.");
+  }
 }
 
 // Functions
