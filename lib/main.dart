@@ -384,6 +384,8 @@ void main() {
   car4.run(car4.name);
   // In Dart, everything is an object.
   car4.toString();
+
+  Araba araba = Araba();
 }
 
 // Functions
