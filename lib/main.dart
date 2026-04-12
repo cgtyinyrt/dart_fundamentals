@@ -1,4 +1,10 @@
 import 'dart:collection';
+import 'package:dart_fundamentals/car.dart';
+import 'package:dart_fundamentals/commands2.dart';
+import 'package:dart_fundamentals/person.dart';
+import 'package:dart_fundamentals/student.dart';
+
+import 'commands.dart' as commands;
 
 void main() {
   // print("Hello, World!");
@@ -340,6 +346,44 @@ void main() {
     if (r > 4) continue;
     print("The 'r' value is small here.");
   }
+
+  // Class like
+  print("commands count: ${commands.count}");
+  print(commands.calc());
+  commands.print_on_Screen("Hello");
+
+  // Class
+  // var instance = new Commands2();
+  var instance = Commands2();
+  print(instance.count2);
+  print(instance.printOnScreen2("article"));
+
+  // Person superHero = Person();
+  // superHero.name = "Batman";
+  // superHero.age = 45;
+  // superHero.isTheBestHero = true;
+
+  // Cascade Operator
+  Person superHero = Person();
+  superHero
+    ..name = "Batman"
+    ..age = 45
+    ..isTheBestHero = true;
+
+  // Setter & Getter
+  Student student = Student();
+  student.name = "Cagatay"; // Setter
+  print("Name of the student: ${student.name}"); // Getter
+
+  student.achievement = 5;
+  print("Point of the student: ${student.achievement}");
+
+  // Inheritance
+  Car car4 = Car("Audi");
+  car4.name = "Auto";
+  car4.run(car4.name);
+  // In Dart, everything is an object.
+  car4.toString();
 }
 
 // Functions
