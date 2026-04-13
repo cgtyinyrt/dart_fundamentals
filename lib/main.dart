@@ -386,7 +386,39 @@ void main() {
   car4.toString();
 
   Araba araba = Araba();
+
+  // Abstract Class
+  // Abstract classes complete their tasks at compile time and
+  // are destroyed at run time.
+  // var object = Shape(); // Error, can't work on runtime
+  var rectangle = Rectangle(3, 5);
+  rectangle.draw();
+  print("The area of rectangle: ${rectangle.area}");
+
+  // Static
+  // var circle = Circle();
+  // print(circle.pi); // The static getter 'pi' can't be accessed through an instance.
+  print(Circle.pi); // Memory Saving
+  Circle.area(5);
+
+  // Try - Catch - Finally - (Error Handling - Stack Trace)
+  try {
+    dynamic test = 9;
+    print("Error: " + test);
+  } catch (e, s) {
+    print("Error: $e");
+    print("Error Stack Trace: $s");
+    // throw "Error: $e";
+  } finally {
+    print("End.");
+  }
 }
+
+// class specialCatch implements Exception {
+//   final String? msg;
+
+//   specialCatch([this.msg]);
+// }
 
 // Functions
 void package() {
@@ -415,5 +447,48 @@ dynamic bessameMucho2(String name, [String? surname, int? age]) {
     print("Dear $name, happy $age. birthday for you!");
   } else {
     print("Dear $name, happy birthday for you!");
+  }
+}
+
+abstract class Shape {
+  final x, y;
+  Shape(this.x, this.y);
+
+  get area;
+  get perimeter;
+  draw();
+}
+
+class Rectangle extends Shape {
+  final int x, y;
+
+  Rectangle(this.x, this.y) : super(x, y);
+
+  @override
+  void draw() {
+    print("Rectangle drawn...");
+  }
+
+  get area => x * y;
+  get perimeter => 2 * (x + y);
+}
+
+class Circle {
+  static const num pi = 3.14;
+  // The static getter 'pi' can't be accessed through an instance.
+
+  // static final num pi = 3.14;
+
+  static String? color;
+
+  static void area(num diameter) {
+    print("Area Diameter: ${pi * diameter * diameter}");
+
+    print(color);
+  }
+
+  void non_static(num diameter) {
+    print("Non-static normal method...");
+    print("Normal method static variable: $pi");
   }
 }
