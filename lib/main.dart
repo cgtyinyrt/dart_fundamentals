@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:collection';
 import 'package:dart_fundamentals/car.dart';
 import 'package:dart_fundamentals/commands2.dart';
@@ -6,7 +7,7 @@ import 'package:dart_fundamentals/student.dart';
 
 import 'commands.dart' as commands;
 
-void main() {
+Future<void> main() async {
   // print("Hello, World!");
   // print(12345);
   // var variable = "Hello";
@@ -412,6 +413,45 @@ void main() {
   } finally {
     print("End.");
   }
+
+  // -------------------------------- Future ---------------------------------
+  // print("First"); // Single Thread
+  // print("Second");
+  // print("Third");
+
+  // print("First");
+  // var sum2 = 0;
+  // for (var i = 0; i < 400000; i++) {
+  //   sum2 = sum2 + 1;
+  // }
+  // print("Third");
+
+  print("First");
+  await Future.microtask(() {
+    // Async Await
+    var sum2 = 0;
+    for (var i = 0; i < 5000; i++) {
+      sum2 = sum2 + 1;
+      print("Second");
+    }
+  });
+  print("Third");
+
+  // await Future.wait([]); // Iterable
+
+  await Future.delayed(Duration(seconds: 5), () {
+    print("test");
+  });
+
+  // Timers
+  Timer(Duration(seconds: 5), () => print("5 seconds later..."));
+  Timer.periodic(Duration(seconds: 5), (t) {
+    print("Tick: ${t.tick}");
+    if (t.tick == 3) {
+      print("Tick stopped");
+      t.cancel();
+    }
+  });
 }
 
 // class specialCatch implements Exception {
